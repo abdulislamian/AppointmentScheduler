@@ -1,0 +1,62 @@
+﻿@model AppointmentScheduler.Models.ViewModels.RegisterModel
+
+
+<h2>Sign Up</h2>
+<form id="account" method="post" asp-action="Register" asp-controller="Account">
+    <h2>Create New Account</h2>
+    <br />
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group row">
+        <label class="col-md-2" asp-for="Name"></label>
+        <div class="col-md-6">
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-2" asp-for="EmailAddress"></label>
+        <div class="col-md-6">
+            <input asp-for="EmailAddress" class="form-control" />
+            <span asp-validation-for="EmailAddress" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-2" asp-for="Password"></label>
+        <div class="col-md-6">
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-2" asp-for="ConfirmPassword"></label>
+        <div class="col-md-6">
+            <input asp-for="ConfirmPassword" class="form-control" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-2" asp-for="RoleName"></label>
+        <div class="col-md-6">
+            <select asp-for="RoleName" asp-items="@AppointmentScheduler.Utilities.Helper.GetRoleforDropDown()" class="js-example-basic-single form-control"></select>
+            <span asp-validation-for="RoleName" class="text-danger"></span>
+        </div>
+    </div>
+    @*<div class="form-group row">
+        <div class="col-md-10 offset-md-2 checkbox">
+            <label asp-for="RememberMe"></label>
+            <input asp-for="RememberMe" />
+        </div>
+    </div>*@
+    <br/>
+    <div class="form-group row">
+        <div class="col-md-6 offset-md-2">
+            <input type="submit" value="Register" class="btn btn-success" />
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_validationscriptspartial" />
+    }
+}
