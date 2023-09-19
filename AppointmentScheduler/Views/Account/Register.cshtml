@@ -37,7 +37,7 @@
     <div class="form-group row">
         <label class="col-md-2" asp-for="RoleName"></label>
         <div class="col-md-6">
-            <select asp-for="RoleName" asp-items="@AppointmentScheduler.Utilities.Helper.GetRoleforDropDown()" class="js-example-basic-single form-control"></select>
+            <select asp-for="RoleName" asp-items="@AppointmentScheduler.Utilities.Helper.GetRoleforDropDown()" class="form-control select2"></select>
             <span asp-validation-for="RoleName" class="text-danger"></span>
         </div>
     </div>
