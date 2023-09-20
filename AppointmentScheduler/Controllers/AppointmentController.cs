@@ -13,11 +13,13 @@ namespace AppointmentScheduler.Controllers
             _appointmentService = appointmentService;
         }
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            ViewBag.DoctorList  = _appointmentService.GetDoctorlist();
-            ViewBag.PatientList = _appointmentService.GetPatientlist();
+            ViewBag.Duration = Utilities.Helper.GetTimeDropDown();
+            ViewBag.DoctorList  = await _appointmentService.GetDoctorlist();
+            ViewBag.PatientList = await _appointmentService.GetPatientlist();
             return View();
         }
+
     }
 }

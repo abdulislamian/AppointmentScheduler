@@ -6,13 +6,14 @@ using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container.              
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>
     (Options => Options.UseSqlServer
     (builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddTransient<IAppointmentService, AppointmentService>();
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 

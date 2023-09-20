@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using AppointmentScheduler.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace AppointmentScheduler.Data
@@ -9,5 +10,6 @@ namespace AppointmentScheduler.Data
         {
 
         }
+        public DbSet<Appointment> Appointments { get; set; }
     }
 }
